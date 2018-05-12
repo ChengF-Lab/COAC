@@ -1921,9 +1921,12 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
 
 
 
-                if( ((AllComponent-CommmonComponent)/(AllComponent+0.000000001)< ScannedTolerance*ScannedTolerance )&&(CorrSum<=(CorrSumAdd+0.00001)))
+                if((CorrSum<=(CorrSumAdd+0.00001)))
                 {
                    fprintf(op," %d",j);
+
+                   double ComponentRatio = (CommmonComponent)/(AllComponent+0.000000001);
+
 
                    for(int i1=0;i1< clusterResult[i].PatternIDs.size();i1++)
                    {
@@ -1931,6 +1934,10 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
                        InterCor = InterCor + cor(SampleID,j)*cor(SampleID,j);
                        fprintf(op," %lf",cor(SampleID,j)*sqrt(Correlation_Matrix[1,SampleID]));
                    }
+
+
+                   fprintf(op," %lf",ComponentRatio);
+                   InterCor = InterCor*ComponentRatio;
 
                    fprintf(op,"\n");
 

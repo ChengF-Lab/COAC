@@ -52,11 +52,8 @@ int main( int argc , char *argv[] )
         FILE * op = fopen(argv[4],"w+");
 
 
-        Test.tolerance = 0.13;
-        Test.CorThreshold = 0.976;
-        Test.CompRThreshold = 0.15;
 
-        std::vector < double > Sum;
+        std::vector < double > CorSum;
         std::vector < double > SquareSum;
 
         Test.ReadSpareM(Index,Value,ip);
@@ -71,16 +68,55 @@ int main( int argc , char *argv[] )
             fscanf(ip1,"\n");
         }
 
-        Test.StatisticSpareMGroup(Index,Value,Flag,Sum,SquareSum);
+        Test.StatisticSpareMGroup(Index,Value,Flag,CorSum,SquareSum);
 
-        for(int i=0;i<Sum.size();i++)
+        for(int i=0;i<CorSum.size();i++)
         {
-            fprintf(op,"%lf", Sum[i]);
+            fprintf(op,"%lf", CorSum[i]);
             fprintf(op,"\t");
             fprintf(op,"%lf", SquareSum[i]);
             fprintf(op,"\n");
         }
      }
+
+      if( strcmp(argv[1],"CorStatistics")==0)
+     {
+        char buffer[1024];
+        std::vector < std::vector < unsigned int > > Index;
+        std::vector < std::vector < double > > Value;
+
+
+        FILE * ip =  fopen(argv[2],"r");
+        FILE * ip1 = fopen(argv[3],"r");
+        FILE * op = fopen(argv[4],"w+");
+
+
+        std::vector < double > CorSum;
+
+        Test.ReadSpareM(Index,Value,ip);
+
+        std::vector < unsigned int > Flag;
+        Flag.resize(Index.size());
+
+        for(int i=0;i<Index.size();i++ )
+        {
+            fscanf(ip1,"\t");
+            fscanf(ip1,"%d",&Flag[i]);
+            fscanf(ip1,"\n");
+        }
+
+        Test.StatisticSpareCor(Index,Value,Flag,CorSum);
+
+        for(int i=0;i<CorSum.size();i++)
+        {
+            fprintf(op,"%lf",CorSum[i]);
+            fprintf(op,"\n");
+        }
+     }
+
+
+
+
    return 0;
 }
 

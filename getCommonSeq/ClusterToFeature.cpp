@@ -134,6 +134,51 @@ void ClusterToFeature::StatisticSpareMGroup( std::vector < std::vector < unsigne
 
 
  }
+
+void ClusterToFeature::StatisticSpareCor( std::vector < std::vector < unsigned int > > &Index,std::vector < std::vector < double > > &Value, std::vector<unsigned int> & CorFlag,std::vector < double > & CorValue)
+{
+
+     int MaxIndex=0;
+     double CorFlagN=0;
+     for(int j=0;j<Index.size();j++)
+      for(int i=0;i<Index[j].size();i++)
+        {
+            if(Index[j][i]>MaxIndex)
+            {
+               MaxIndex=Index[j][i];
+            }
+        }
+    std::vector < double > ValueN;
+    CorValue.resize(MaxIndex);
+    ValueN.resize(MaxIndex);
+      for(int i=0;i<MaxIndex;i++)
+     {
+        CorValue[i]=0;
+        ValueN[i] =0;
+     }
+
+      for(int j=0;j<Index.size();j++)
+       for(int i=0;i<Index[j].size();i++)
+        {
+            CorValue[Index[j][i]-1] = CorValue[Index[j][i]-1]+Value[j][i]*CorFlag[j];
+            ValueN[Index[j][i]-1] = ValueN[Index[j][i]-1] + Value[j][i]*Value[j][i];
+        }
+
+      for(int i=0;i<CorFlag.size();i++)
+      {
+        CorFlagN = CorFlagN + CorFlag[i]*CorFlag[i];
+      }
+
+     for(int i=0;i<MaxIndex;i++)
+     {
+        CorValue[i]=CorValue[i]/(sqrt(ValueN[i])+0.000000000001);
+        CorValue[i]=CorValue[i]/(sqrt(CorFlagN)+0.00000000001);
+     }
+}
+
+
+
+
 void ClusterToFeature::OutPutFeature()
 {
   unsigned int Size;
