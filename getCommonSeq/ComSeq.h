@@ -321,7 +321,7 @@ class ClusterToFeature{
   void ReadSpareM( std::vector < std::vector < unsigned int > > & Index,std::vector < std::vector < double > > & Value,FILE *Op);
   void StatisticSpareM( std::vector < std::vector < unsigned int > > &Index,std::vector < std::vector < double > > &Value, std::vector < double > &SumValue,std::vector < double > &SquareValue);
  void StatisticSpareMGroup( std::vector < std::vector < unsigned int > > &Index,std::vector < std::vector < double > > &Value, std::vector<unsigned int> &GroupFlag,std::vector < double > &SumValue,std::vector < double > &SquareValue);
-void StatisticSpareCor( std::vector < std::vector < unsigned int > > &Index,std::vector < std::vector < double > > &Value, std::vector<unsigned int> & CorFlag,std::vector < double > & CorValue);
+void StatisticSpareCor( std::vector < std::vector < unsigned int > > &Index,std::vector < std::vector < double > > &Value, std::vector<double> & CorFlag,std::vector < double > & CorValue);
 
 };
 
