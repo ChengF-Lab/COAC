@@ -95,7 +95,7 @@ int main( int argc , char *argv[] )
 
         Test.ReadSpareM(Index,Value,ip);
 
-        std::vector < unsigned int > Flag;
+        std::vector < double > Flag;
         Flag.resize(Index.size());
 
         for(int i=0;i<Index.size();i++ )
