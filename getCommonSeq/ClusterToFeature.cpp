@@ -135,7 +135,7 @@ void ClusterToFeature::StatisticSpareMGroup( std::vector < std::vector < unsigne
 
  }
 
-void ClusterToFeature::StatisticSpareCor( std::vector < std::vector < unsigned int > > &Index,std::vector < std::vector < double > > &Value, std::vector<unsigned int> & CorFlag,std::vector < double > & CorValue)
+void ClusterToFeature::StatisticSpareCor( std::vector < std::vector < unsigned int > > &Index,std::vector < std::vector < double > > &Value, std::vector< double > & CorFlag,std::vector < double > & CorValue)
 {
 
      int MaxIndex=0;
