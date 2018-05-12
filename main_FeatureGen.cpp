@@ -101,7 +101,7 @@ int main( int argc , char *argv[] )
         for(int i=0;i<Index.size();i++ )
         {
             fscanf(ip1,"\t");
-            fscanf(ip1,"%d",&Flag[i]);
+            fscanf(ip1,"%lf",&Flag[i]);
             fscanf(ip1,"\n");
         }
 
