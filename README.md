@@ -12,6 +12,6 @@ The content of config file:
     CutThresholdRatio = 0.0
 
 Tolerance is 
-\sigma
+  x = \frac{ { - b \pm \sqrt {b^2 - 4ac} } } { {2a} }
 
 # Comands
