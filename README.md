@@ -12,6 +12,6 @@ The content of config file:
     CutThresholdRatio = 0.0
 
 Tolerance is 
-   [markdown-syntax]（http://www.forkosh.com/mathtex.cgi?\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}）
+   ![first equation](http://latex.codecogs.com/gif.download?%5Cfrac%7Bx%7D%7By%7D)
   
 # Comands
