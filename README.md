@@ -9,7 +9,7 @@ The content of config file:
     ZeroTolerance = 0.03
     MaxDepth =  1024
     MinSupport = 3
-    
+    CutThresholdRatio = 0.0
 
 Tolerance is defined as follow:
 
@@ -20,14 +20,16 @@ Tolerance is defined as follow:
  
 CutOff is defined as follow: 
    
-   There a F-distribution for all attribute values in a component.The P-value of each selected attribute caculated by F-distribution must be smaller than CutOff. So the number of selected attribute in each component is depended on CutOff.Smaller CutOff can shrink the number of selected attribute which lead to smaller final result.If the number of result exponentially expand too much,the CutOff should be tuned smaller.
+   There a F-distribution for all attribute values in a component.The P-value of each selected attribute caculated by F-distribution must be smaller than CutOff. So the number of selected attribute in each component is depended on CutOff. Small CutOff can shrink the number of final result.If the number of result exponentially expand too large,the CutOff should be tuned smaller.
    
-ZeroTolerance: 
+MaxDepth:
 
-  In a attribute,if the number of no-zero elements is smaller than ZeroTolerance, this attribute will be removed. 
-  
-MaxDepth: 
-  
+   The maxmum size of Attribute Clustering. 
 
+MinSupport:
+
+   The minmum size of Attribute Clustering.The bigger MinSupport will introduce smaller number of final result.
+   
+ 
   
 # Comands
