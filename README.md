@@ -12,6 +12,6 @@ The content of config file:
     CutThresholdRatio = 0.0
 
 Tolerance is 
-   ![first equation](http://latex.codecogs.com/gif.download?%5Cfrac%7Bx%7D%7By%7D)
+   ![first equation](http://latex.codecogs.com/gif.latex?%5Cfrac%7Bx%7D%7By%7D)
   
 # Comands
