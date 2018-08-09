@@ -28,7 +28,7 @@ MaxDepth:
 
 MinSupport:
 
-   The minmum size of Attribute Clustering.The bigger MinSupport will introduce smaller number of final result.
+   The minmum size of Attribute Clustering.The bigger MinSupport will introduce smaller the number of final result.
    
  
   
