@@ -20,7 +20,7 @@ Tolerance is defined as follow:
  
 CutOff is defined as follow: 
    
-   There a F-distribution for attribute values in a component.The P-value of each selected attribute in F-distribution must be smaller than CutOff. 
+   There a F-distribution for all attribute values in a component.The P-value of each selected attribute caculated by F-distribution must be smaller than CutOff. 
    
  
   
