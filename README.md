@@ -12,6 +12,6 @@ The content of config file:
     CutThresholdRatio = 0.0
 
 Tolerance is 
-  x = \frac{ { - b \pm \sqrt {b^2 - 4ac} } } { {2a} }
-
+  [markdown-syntax](\frac{ { - b \pm \sqrt {b^2 - 4ac} } } { {2a} })
+  
 # Comands
