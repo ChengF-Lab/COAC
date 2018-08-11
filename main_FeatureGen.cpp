@@ -26,7 +26,12 @@ int main( int argc , char *argv[] )
 
         FILE * ip =  fopen(argv[2],"r");
         FILE * op =  fopen(argv[3],"w+");
-
+          
+        if(ip==NULL||op==NULL||argc<5)
+        {
+            printf("FeatureGen ToFeature   InputFile OutputFIle AverageCorrelation AverageComponentRatio\n");
+            return 0;
+        }
         Test.tolerance = 0.01;
         Test.CorThreshold = atof(argv[4]);
         Test.CompRThreshold = atof(argv[5]);
@@ -41,7 +46,13 @@ int main( int argc , char *argv[] )
         FILE * ip =  fopen(argv[2],"r");
         FILE * ip1 = fopen(argv[3],"r");
         FILE * op =  fopen(argv[4],"w+");
-
+          
+         if(ip==NULL||op==NULL||argc<4)
+         {
+            printf("FeatureGen Decipher FeatureFile   InputFile OutputFile\n");
+            return 0;
+         }
+          
         Test.ReadFeature(ip);
         Test.SampleRead(ip1);
         Test.SampleDecipher(op);
@@ -61,7 +72,12 @@ int main( int argc , char *argv[] )
         FILE * ip1 = fopen(argv[3],"r");
         FILE * op = fopen(argv[4],"w+");
 
-
+         if(ip==NULL||op==NULL||argc<4)
+         {
+            printf("FeatureGen Statistics InputFile InputFileGroupTag OutputFile\n");
+            return 0;
+              
+         }
 
         std::vector < double > CorSum;
         std::vector < double > SquareSum;
@@ -100,6 +116,14 @@ int main( int argc , char *argv[] )
         FILE * ip1 = fopen(argv[3],"r");
         FILE * op = fopen(argv[4],"w+");
 
+        
+         if(ip==NULL||op==NULL||argc<4)
+         {
+            printf("FeatureGen CorStatistics InputFile InputFileNumericalTag OutputFile\n");
+            return 0;
+         }  
+         
+           
 
         std::vector < double > CorSum;
 
