@@ -15,6 +15,7 @@ int main( int argc , char *argv[] )
           printf("FeatureGen Decipher\n");
           printf("FeatureGen Statistics\n");
           printf("FeatureGen CorStatistics\n");
+          return 0;
      }
      
 
