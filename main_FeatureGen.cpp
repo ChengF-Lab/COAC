@@ -8,6 +8,15 @@ int main( int argc , char *argv[] )
 {
 
      ClusterToFeature Test;
+     
+     if(argv[1]==NULL)
+     {
+          printf("ToFeature\n");
+          printf("Decipher\n");
+          printf("Statistics\n");
+          printf("CorStatistics:\n");
+     }
+     
 
 
      if( strcmp(argv[1],"ToFeature")==0)
