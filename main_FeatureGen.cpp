@@ -11,9 +11,9 @@ int main( int argc , char *argv[] )
      
      if(argv[1]==NULL)
      {
-          printf("ToFeature\n");
-          printf("Decipher\n");
-          printf("Statistics\n");
+          printf("ToFeature:\n");
+          printf("Decipher:\n");
+          printf("Statistics:\n");
           printf("CorStatistics:\n");
      }
      
