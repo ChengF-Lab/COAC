@@ -24,7 +24,7 @@ CutOff is defined as follow:
    
 MaxDepth:
 
-   The maxmum size of Attribute Clustering. 
+   The maxmum  principle components of Attribute Clustering. 
 
 MinSupport:
 
