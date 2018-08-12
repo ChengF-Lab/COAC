@@ -1927,18 +1927,18 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
                    fprintf(op," %d",j);
 
                    double ComponentRatio = (CommmonComponent)/(AllComponent+0.000000001);
-
+                   double InterCor_=0;
 
                    for(int i1=0;i1< clusterResult[i].PatternIDs.size();i1++)
                    {
                        int SampleID = clusterResult[i].PatternIDs[i1];
-                       InterCor = InterCor + cor(SampleID,j)*cor(SampleID,j);
+                       InterCor_ = InterCor_ + cor(SampleID,j)*cor(SampleID,j);
                        fprintf(op," %lf",cor(SampleID,j)*sqrt(Correlation_Matrix[1,SampleID]));
                    }
 
 
                    fprintf(op," %lf",ComponentRatio);
-                   InterCor = InterCor + InterCor*ComponentRatio;
+                   InterCor = InterCor + InterCor_*ComponentRatio;
 
                    fprintf(op,"\n");
 
