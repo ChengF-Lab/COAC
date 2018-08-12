@@ -1199,7 +1199,8 @@ void ComSeq::PreAttributeCluster()
                               };
 
                              double GroupBetween = CorSumSquare;
-                             SelectGroup = 0;
+
+                             SelectGroup = 0;
                              for(int j=0;j<cor.n_cols;j++)
                              {
                                GroupBetween = GroupBetween-((CorSum[j]-SubCorSum[j])*(CorSum[j]-SubCorSum[j])+SubCorSum[j]*SubCorSum[j]);
@@ -1951,8 +1952,11 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
              {
                 fprintf(op,"%s","CorrelationAverage: ");
                 fprintf(op,"%d ",clusterResult[i].PatternIDs.size());
-                fprintf(op,"%lf ",(CorrSum-clusterResult[i].PatternIDs.size())/((clusterResult[i].PatternIDs.size()-1)*(clusterResult[i].PatternIDs.size())));
-
+		if( clusterResult[i].PatternIDs.size() > 1.0)
+                    fprintf(op,"%lf ",(CorrSum-clusterResult[i].PatternIDs.size())/((clusterResult[i].PatternIDs.size()-1)*(clusterResult[i].PatternIDs.size())));
+                else
+		    fprintf(op,"%lf ",0.0);
+			 
                /* double InterCor1=0;
                 for(int j=0;j<cor.n_cols;j++)
                 {
