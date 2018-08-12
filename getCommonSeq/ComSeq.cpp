@@ -1938,7 +1938,7 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
 
 
                    fprintf(op," %lf",ComponentRatio);
-                   InterCor = InterCor*ComponentRatio;
+                   InterCor = InterCor + InterCor*ComponentRatio;
 
                    fprintf(op,"\n");
 
@@ -1955,7 +1955,7 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
 		if( clusterResult[i].PatternIDs.size() > 1.0)
                     fprintf(op,"%lf ",(CorrSum-clusterResult[i].PatternIDs.size())/((clusterResult[i].PatternIDs.size()-1)*(clusterResult[i].PatternIDs.size())));
                 else
-		    fprintf(op,"%lf ",0.0);
+		    fprintf(op,"%lf ",1.0);
 			 
                /* double InterCor1=0;
                 for(int j=0;j<cor.n_cols;j++)
