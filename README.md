@@ -1,5 +1,5 @@
 # sub-network
-#config file 
+# config file 
   The parameters for procedure are recorded in config file. 
   
 The content of config file:
