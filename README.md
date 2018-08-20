@@ -54,7 +54,7 @@ TestMatrix is input file, the format of input file is described as follow:
   The  distribution of Average correlation and Average Component Ratio can be obtained from log file,The thresholds of Average correlation and Average Component Ratio for filtration are evaluated from this distribution. 
  
       
-      FeatureGen ToFeature   InputFile OutputFIle AverageCorrelation AverageComponentRatio
+      FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio
  
- ToFeature is the keyword, InputFile is the filename of Cluster commond generated file. OutputFIle is output file name.  AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
+ ToFeature is the keyword, InputFile is the filename of Cluster commond generated file. OutputFile is output file name.  AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
      
