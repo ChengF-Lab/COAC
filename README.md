@@ -50,8 +50,11 @@ TestMatrix is input file, the format of input file is described as follow:
         CorrelationAverage: 3 0.999124 0.148882
         CorrelationAverage: 3 0.989092 0.142556
         ......
- The first column numeric indicate the number of elements in each clustering.The second column numeric indicate Average correlation of this clustering and the third column numeric indicate Average Component Ratio of this clustering.      
+  The first column numeric indicate the number of elements in each clustering.The second column numeric indicate Average correlation of this clustering and the third column numeric indicate Average Component Ratio of this clustering.  
+  The  distribution of Average correlation and Average Component Ratio can be obtained from log file,The thresholds of Average correlation and Average Component Ratio for filtration are evaluated from this distribution. 
  
+      
+      FeatureGen ToFeature   InputFile OutputFIle AverageCorrelation AverageComponentRatio
  
- 
+ ToFeature is the keyword, InputFile is the filename of Cluster commond generated file. OutputFIle is output file name.  AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
      
