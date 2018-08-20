@@ -50,7 +50,7 @@ TestMatrix is input file, the format of input file is described as follow:
         CorrelationAverage: 3 0.999124 0.148882
         CorrelationAverage: 3 0.989092 0.142556
         ......
- The first column numeric indicate the number of elements in each clustering.The second column numeric indicate Average correlation of this clustering and the third column numeric indicate Average Component Ratio.      
+ The first column numeric indicate the number of elements in each clustering.The second column numeric indicate Average correlation of this clustering and the third column numeric indicate Average Component Ratio of this clustering.      
  
  
  
