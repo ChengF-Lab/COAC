@@ -56,8 +56,11 @@ TestMatrix is input file, the format of input file is described as follow:
       
       FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio
  
- ToFeature is the keyword, InputFile is the filename of Cluster commond generated file. OutputFile is output file name for features record.  AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
+ ToFeature is the keyword, InputFile is the filename of Cluster commond generated file. OutputFile is output file name for features record.AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
  
       FeatureGen Decipher FeatureFile   InputFile OutputFile
    
-     
+  Decipher is the keyword,FeatureFile is the filename of FeatureGen commond  generated file with keyword 'ToFeature'.  
+  
+  
+  
