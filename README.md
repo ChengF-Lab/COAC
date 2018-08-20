@@ -24,12 +24,34 @@ CutOff is defined as follow:
    
 MaxDepth:
 
-   The maxmum  principle components of Attribute Clustering. 
+   The maximum number of principal components of Attribute Clustering. 
 
 MinSupport:
 
    The minmum size of Attribute Clustering.The bigger MinSupport will introduce smaller the number of final result.
    
- 
-  
+   
 # Comands
+
+    ./Cluster TestMatrix   OutFile 
+    
+TestMatrix is input file, the format of input file is described as follow: 
+       
+       column_1  column_2  column_3  column_4 ...
+         0.12      0.11     0.34      0.98    ...
+         ... 
+  
+ OutFile is output file name. 
+ 
+        grep CorrelationAverage OutFile > log 
+  
+ After above commads is executed, The content of log file is described as following: 
+ 
+        CorrelationAverage: 3 0.999124 0.148882
+        CorrelationAverage: 3 0.989092 0.142556
+        ......
+ The first column numeric indicate the number of elements in each clustering.The second column numeric indicate Average correlation of this clustering and the third column numeric indicate Average Component Ratio.      
+ 
+ 
+ 
+     
