@@ -54,13 +54,13 @@ TestMatrix is input file, the format of input file is described as follow:
   The  distribution of Average correlation and Average Component Ratio can be obtained from log file,The thresholds of Average correlation and Average Component Ratio for filtration are evaluated from this distribution. 
  
       
-      FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio
+     FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio
  
  ToFeature is the keyword, InputFile is the filename of Cluster commond generated file. OutputFile is output file name for features record.AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
  
       FeatureGen Decipher FeatureFile   InputFile OutputFile
    
-  Decipher is the keyword,FeatureFile is the filename of FeatureGen commond  generated file with keyword 'ToFeature'.  
+  Decipher is the keyword,FeatureFile is the filename of 'FeatureGen ToFeature'  commond  generated file.InputFile is matrix file with the same format with the input file of "Cluster" commond,OutputFile is filename of a sparse matrix  which is a mapping of outputfile . this mapping is implemented by  features which recorded in FeatureFile.The OutputFile with sparse matrix format can loaded into R environment directly for further analysis.   
   
   
   
