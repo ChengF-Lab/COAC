@@ -1,4 +1,9 @@
-# sub-network
+#compile
+
+     make
+
+When 'make' command is fininshed,FeatureGen and Cluster files are generated.    
+
 # config file 
   The parameters for procedure are recorded in config file. 
   
@@ -45,7 +50,7 @@ TestMatrix is the input file, the format of the input file is described as follo
  
         grep CorrelationAverage OutFile > log 
   
- After above commads is executed, The content of log file is described as following: 
+ After above command is executed,the content of log file is described as following: 
  
         CorrelationAverage: 3 0.999124 0.148882
         CorrelationAverage: 3 0.989092 0.142556
