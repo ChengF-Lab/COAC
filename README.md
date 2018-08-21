@@ -2,7 +2,7 @@
 
      make
 
-When 'make' command is fininshed,FeatureGen and Cluster files are generated.    
+When 'make' command is fininshed,'FeatureGen' and 'Cluster' files are generated.    
 
 # config file 
   The parameters for procedure are recorded in config file. 
@@ -44,13 +44,13 @@ The config file is necessary that exist in the same directory with data file. if
 
     ./Cluster TestMatrix -config  configPATH/config  
     
-TestMatrix is the input file, the format of the input file is described as follow: 
+'TestMatrix' is the input file, the format of the input file is described as follow: 
        
        column_name1  column_name2  column_name3  column_name4 ...
         0.12         0.11           0.34          0.98        ...
         ... 
   
- OutFile is output file name. 
+ 'OutFile' is output file name. 
  
         grep CorrelationAverage OutFile > log 
   
@@ -65,11 +65,11 @@ TestMatrix is the input file, the format of the input file is described as follo
       
      FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio
  
- ToFeature is the keyword, InputFile is the filename of Cluster commond generated file. OutputFile is output file name for features record.AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
+ 'ToFeature' is the keyword. InputFile is the filename of Cluster commond generated file.  OutputFile is output file name for features record.AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio.  
  
-      FeatureGen Decipher FeatureFile   InputFile OutputFile
+    FeatureGen Decipher FeatureFile   InputFile OutputFile
    
-  Decipher is the keyword,FeatureFile is the filename of 'FeatureGen ToFeature'  commond  generated file.InputFile is matrix file with the same format with the input file of "Cluster" commond,OutputFile is filename of a sparse matrix  which is a mapping of outputfile . this mapping is implemented by  features which recorded in FeatureFile.The OutputFile with sparse matrix format can loaded into R environment directly for further analysis.   
+  'Decipher' is the keyword,FeatureFile is the filename of 'FeatureGen ToFeature' commond generated file.InputFile is matrix file with the same format with the input file of 'Cluster' command, OutputFile is the filename of a sparse matrix which is a mapping of outputfile. This mapping is implemented using features which recorded in FeatureFile.The OutputFile with sparse matrix format can be loaded into R environment directly for further analysis.    
   
   
   
