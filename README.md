@@ -69,7 +69,7 @@ The config file is necessary that exist in the same directory with data file. if
  
     FeatureGen Decipher FeatureFile   InputFile OutputFile
    
-  'Decipher' is the keyword,FeatureFile is the filename of 'FeatureGen ToFeature' commond generated file.InputFile is a matrix file with the same format with the input file of 'Cluster' command, OutputFile is the filename of a sparse matrix which is a mapping of outputfile. This mapping is implemented using features which recorded in FeatureFile.The OutputFile with sparse matrix format can be loaded into R environment directly for further analysis.    
+  'Decipher' is the keyword,FeatureFile is the filename of 'FeatureGen ToFeature' commond generated file.InputFile is a matrix file with the same format with the input file of 'Cluster' command, OutputFile is the filename of a sparse matrix which is a mapping of outputfile. This mapping is implemented using features which recorded in FeatureFile.The OutputFile with sparse matrix format can be loaded into R environment directly for further analysis.     
   
   
   
