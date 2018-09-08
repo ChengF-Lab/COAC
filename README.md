@@ -14,7 +14,6 @@ The content of config file:
     ZeroTolerance = 0.03
     MaxDepth =  1024
     MinSupport = 3
-    CutThresholdRatio = 0.0
 
 Tolerance:
 
