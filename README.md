@@ -38,15 +38,18 @@ MinSupport:
    
 # Comands
 
-    ./Cluster TestMatrix   OutFile 
+    ./Cluster TestMatrix   OutFile   [ FilterFile ] 
     
 The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
 
-    ./Cluster TestMatrix -config   configPATH/config 
+    ./Cluster TestMatrix  OutFile  [ FilterFile ]  -config   configPATH/config 
     
-'FilterFile' is optional, the column name which not be contained in this file will be ignored 
-    
-    ./Cluster TestMatrix   [ FilterFile ]
+'FilterFile' is optional, the column name which not be contained in this file will be ignored,the format of the 'FilterFile' is described as follow: 
+
+    column_name1
+    column_name2
+    ...
+    column_namen
          
 'TestMatrix' is the input file, the format of the input file is described as follow: 
        
