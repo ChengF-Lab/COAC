@@ -42,8 +42,12 @@ MinSupport:
     
 The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.
 
-    ./Cluster TestMatrix -config  configPATH/config  
+    ./Cluster TestMatrix -config   configPATH/config 
     
+'FilterFile' is optional, the column name which not be contained in this file will be ignored 
+    
+    ./Cluster TestMatrix   [ FilterFile ]
+         
 'TestMatrix' is the input file, the format of the input file is described as follow: 
        
        column_name1  column_name2  column_name3  column_name4 ...
