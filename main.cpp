@@ -147,6 +147,7 @@ int main( int argc , char *argv[] )
                {
                    fscanf(configip,"%[\b|\t]*",buffer);
                    fscanf(configip,"%s",buffer);
+                   test.CutThresHold = 0.0;
 
                    if(strcmp(buffer,"=")==0)
                    {
