@@ -300,7 +300,9 @@ class ClusterToFeature{
   std::vector < std::vector <std::string> > FeatureNameArray;
   std::vector < mat> FeatureComponentArray;
   std::map < std::vector <int>,int > ComponentTable;
-  std::vector < mat> FeatureM;
+  std::vector < mat> FeatureM; 
+  std::map < std::string ,int > NetworkName;
+  std::map < std::vector <int>,std::string > NetworkDictionary;
   mat Sample;
   std::vector<std::string> SampleName;
   std::set<std::string> FilterSet;
@@ -312,6 +314,10 @@ class ClusterToFeature{
   void ReadFilteFile(FILE *ip);
   void FilteFeature();
   void ReadFeature(FILE *Op);
+  void OutPutFeatureS(FILE *Op);
+  void NetWorkFilteFeature();
+  void ReadNetWork(FILE *ip);
+
   mat U;
   mat V;
   vec s;
