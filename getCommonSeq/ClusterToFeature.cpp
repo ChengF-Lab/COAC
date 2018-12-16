@@ -2,6 +2,7 @@
 #include "stdio.h"
 #include "math.h"
 #include <fstream>
+#include <queue>
 #include <boost/math/distributions/fisher_f.hpp>
 using namespace std;
 using namespace arma;
@@ -175,6 +176,37 @@ void ClusterToFeature::StatisticSpareCor( std::vector < std::vector < unsigned i
         CorValue[i]=CorValue[i]/(sqrt(CorFlagN)+0.00000000001);
      }
 }
+
+void  ClusterToFeature::OutPutFeatureS(FILE *Op)
+{
+		char buffer[1024];
+		int Size;
+	    int Array_Size;
+
+		 Size = FeatureNameArray.size();
+		 for(int i=0;i<Size;i++)
+		 {
+
+				fprintf(Op,"%d\b\t",FeatureNameArray[i].size());
+				for( int j=0;j<FeatureNameArray[i].size();j++)
+				{
+				   fprintf(Op,"%s,",FeatureNameArray[i][j].c_str());
+                }
+				   fprintf(Op,"\b\t");
+				   fprintf(Op,"%d\b\t",FeatureM[i].n_rows);
+				   for(int i1=0;i1<FeatureM[i].n_rows;i1++)
+				   {
+							fprintf(Op,"(");
+							for(int j=0;j<FeatureM[i].n_cols;j++)
+						  {
+							 fprintf(Op,"%lf,",FeatureM[i](i1,j));
+						  }
+							fprintf(Op,")");
+				   }
+							fprintf(Op,"\n");
+		 }
+}
+
 
 
 
@@ -395,6 +427,209 @@ void ClusterToFeature::OutPutFeature(FILE *Op)
      }
 
 }
+
+
+void   ClusterToFeature::NetWorkFilteFeature ()
+{
+    std::vector<int> FilterIndex;
+    std::queue<int>  Queue;
+    std::vector<int> NetworkNameID;
+    std::vector < std::vector <std::string> > FeatureNameArrayNew;
+    std::vector < mat> FeatureMNew;
+    std::vector<int> key;
+
+
+	key.resize(2);
+    if( NetworkDictionary.size()==0 )
+    {
+       return;
+    }
+
+
+
+
+
+
+    for(int i=0;i<FeatureNameArray.size();i++)
+    {
+         int j;
+         bool FILTER = false;
+		 int FeatureNameArraySize = 0;
+
+         if( NetworkNameID.size() < FeatureNameArray[i].size())
+         {
+             NetworkNameID.resize(FeatureNameArray[i].size()+1);
+         }
+
+         for(j=0;j<FeatureNameArray[i].size();j++)
+         {
+
+            if ( NetworkName.find( FeatureNameArray[i][j].c_str()) ==  NetworkName.end() )
+            {
+                break;
+
+            }else
+            {
+                NetworkNameID[j] = NetworkName[FeatureNameArray[i][j].c_str()];
+            }
+         }
+		 
+         FeatureNameArraySize = FeatureNameArray[i].size();
+
+
+         if( j!=FeatureNameArray[i].size())
+         {
+             continue;
+
+         }else{
+
+
+            Queue.push(NetworkNameID[0]);
+            NetworkNameID[0] =-1;
+
+            while(!Queue.empty())
+            {
+
+                int RecordedIndexA;
+                int RecordedIndexB;
+
+                RecordedIndexA = Queue.front();
+				Queue.pop();
+                for(int i=0;i<FeatureNameArraySize;i++)
+                {
+                    if ( NetworkNameID[i]!=-1)
+                    {
+                       RecordedIndexB = NetworkNameID[i];
+
+
+
+                      if(RecordedIndexA>RecordedIndexB)
+                        {
+                            key[0] = RecordedIndexA;
+                            key[1] = RecordedIndexB;
+
+                        }else
+                        {
+                            key[0] = RecordedIndexB;
+                            key[1] = RecordedIndexA;
+                        }
+
+
+
+                       if( NetworkDictionary.find(key) != NetworkDictionary.end())
+                       {
+                           Queue.push(RecordedIndexB);
+                           NetworkNameID[i]=-1;
+                       }
+                    }
+                }
+            }
+
+            for(int i1=0;i1<FeatureNameArray[i].size();i1++)
+            {
+                if( NetworkNameID[i1]!=-1)
+                {
+					FILTER =true;
+                    break;
+                }
+            }
+
+            if( !FILTER )
+            FilterIndex.push_back(i);
+         }
+    }
+    for(int i=0;i<FilterIndex.size();i++)
+    {
+          FeatureNameArrayNew.push_back(FeatureNameArray[FilterIndex[i]]);
+          FeatureNameArray[FilterIndex[i]].resize(0);
+    }
+
+    for(int i=0;i<FilterIndex.size();i++)
+    {
+         FeatureMNew.push_back(FeatureM[FilterIndex[i]]);
+    }
+      FeatureNameArray.resize(0);
+      FeatureNameArray = FeatureNameArrayNew;
+      FeatureM.resize(0);
+      FeatureM = FeatureMNew;
+
+}
+
+
+
+void  ClusterToFeature::ReadNetWork(FILE *ip)
+{
+    std::string  IDPath;
+    char buffer[1024];
+    int Size;
+    int Array_Size;
+    int RecordedIndexA;
+    int RecordedIndexB;
+    std::vector <int> key;
+
+	key.resize(2);
+
+
+
+    while ((!feof(ip)))
+    {
+        fscanf(ip,"%[\b|\t]*",buffer);
+        fscanf(ip,"%s",buffer);
+        IDPath.assign(buffer);
+        fscanf(ip,"%[\b\t]*",buffer);
+
+
+
+        if( NetworkName.find(IDPath)== NetworkName.end())
+       {
+
+            NetworkName.insert((std::make_pair(IDPath,NetworkName.size()-1)));
+
+       }
+       {
+            RecordedIndexA = NetworkName[IDPath];
+       }
+
+       fscanf(ip,"%s",buffer);
+       IDPath.assign(buffer);
+       fscanf(ip,"%[\b|\t]*",buffer);
+
+
+
+       if( NetworkName.find(IDPath)== NetworkName.end())
+       {
+
+            NetworkName.insert((std::make_pair(IDPath,NetworkName.size()-1)));
+
+       }
+       {
+            RecordedIndexB = NetworkName[IDPath];
+       }
+
+       if(RecordedIndexA>RecordedIndexB)
+       {
+          key[0] = RecordedIndexA;
+          key[1] = RecordedIndexB;
+
+       }else
+       {
+          key[0] = RecordedIndexB;
+          key[1] = RecordedIndexA;
+       }
+
+    //  fscanf(ip,"%s",buffer);
+        IDPath.assign("1");
+        fscanf(ip,"%[\b|\t|\n]*",buffer);
+
+
+        if( NetworkDictionary.find(key) == NetworkDictionary.end())
+        {
+           NetworkDictionary.insert(std::make_pair(key,IDPath));
+        }
+    }
+
+}
+
 
 
 void ClusterToFeature::ReadFeature(FILE *ip)
