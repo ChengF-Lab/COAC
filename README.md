@@ -77,7 +77,7 @@ The config file is necessary that exist in the same directory with data file. if
    
   'Decipher' is the keyword,FeatureFile is the filename of 'FeatureGen ToFeature' commond generated file.InputFile is a matrix file with the same format with the input file of 'Cluster' command, OutputFile is the filename of a sparse matrix which is a mapping of outputfile. This mapping is implemented using features which recorded in FeatureFile.The OutputFile with sparse matrix format can be loaded into R environment directly for further analysis.     
   
-    FeatureGen NetworkFilter  NetworkFile  FeatureFile  OutputFile
+    FeatureGen NetworkFilter  FeatureFile  NetworkFile OutputFile
 
   'NetworkFilter' is the keyword,NetworkFile is two column file which indicate such as protein-protein interaction or protein-gene interaction. FeatureFile file is the same as input feature file of "FeatureGen Decipher" command. OutputFile is the feature file after fitering. The filtering rule is definited that if elements in a clustering is connect to each another in the network which  is provided in the network file, then this clustering is kept. 
 
