@@ -187,13 +187,13 @@ void  ClusterToFeature::OutPutFeatureS(FILE *Op)
 		 for(int i=0;i<Size;i++)
 		 {
 
-				fprintf(Op,"%d\b\t",FeatureNameArray[i].size());
+				fprintf(Op,"%d\b\t",(int)FeatureNameArray[i].size());
 				for( int j=0;j<FeatureNameArray[i].size();j++)
 				{
 				   fprintf(Op,"%s,",FeatureNameArray[i][j].c_str());
                 }
 				   fprintf(Op,"\b\t");
-				   fprintf(Op,"%d\b\t",FeatureM[i].n_rows);
+				   fprintf(Op,"%d\b\t",(int)FeatureM[i].n_rows);
 				   for(int i1=0;i1<FeatureM[i].n_rows;i1++)
 				   {
 							fprintf(Op,"(");
@@ -379,7 +379,7 @@ void ClusterToFeature::OutPutFeature(FILE *Op)
      {
 
 
-         fprintf(Op,"%d\b\t",FeatureNameArray[i].size());
+         fprintf(Op,"%d\b\t",(int)FeatureNameArray[i].size());
 
          for( int j=0;j<FeatureNameArray[i].size();j++)
          {
@@ -912,7 +912,7 @@ void ClusterToFeature::SampleRead(FILE *ip)
 
 
 	    fscanf(ip,"%[\b|\t]*",buffer);
-	    fscanf(ip,"%s",&buffer);
+	    fscanf(ip,"%s",buffer);
             N++;
             fscanf(ip,"%[\b|\t]*",buffer);
 	} while(!fscanf(ip,"%[\n]",buffer));
