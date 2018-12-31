@@ -842,7 +842,7 @@ void ClusterToFeature::ReadFilteFile(FILE *ip)
     while((!feof(ip)))
     {
          fscanf(ip,"%[\b|\t|\n]*",buffer);
-         fscanf(ip,"%s",&buffer);
+         fscanf(ip,"%s",buffer);
          FilterSet.insert(buffer);
     }
 
