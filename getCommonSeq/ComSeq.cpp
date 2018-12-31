@@ -196,7 +196,7 @@ void ComSeq::matrixReadWithName(FILE *ip)
 
 
 	    fscanf(ip,"%[\b|\t]*",buffer);
-	    fscanf(ip,"%s",&buffer);
+	    fscanf(ip,"%s",buffer);
             N++;
             fscanf(ip,"%[\b|\t]*",buffer);
 	} while(!fscanf(ip,"%[\n]",buffer));
