@@ -173,13 +173,13 @@ int main( int argc , char *argv[] )
 
    test.matrixReadWithName(ip);
    printf("Matrix have been read.\n");
-   printf("n_rows: %d\n",test.Sample.n_rows);
-   printf("n_cols: %d\n",test.Sample.n_cols);
+   printf("n_rows: %d\n",(int)test.Sample.n_rows);
+   printf("n_cols: %d\n",(int)test.Sample.n_cols);
    test.filter();
    printf("Matrix have been filtered.\n");
-   printf("n_rows: %d\n",test.Sample.n_rows);
-   printf("n_cols: %d\n",test.Sample.n_cols);
-   printf("n_cols: %d\n",test.SampleName.size());
+   printf("n_rows: %d\n",(int)test.Sample.n_rows);
+   printf("n_cols: %d\n",(int)test.Sample.n_cols);
+   printf("n_cols: %d\n",(int)test.SampleName.size());
    test.AttributeCluster();
    test.OutClusterWithNameCombact(op);
  
