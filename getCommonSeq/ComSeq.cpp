@@ -20,7 +20,7 @@ void ComSeq::ReadFilteFile(FILE *ip)
     while((!feof(ip)))
     {
          fscanf(ip,"%[\b|\t|\n]*",buffer);
-         if( fscanf(ip,"%s",&buffer)!=0)
+         if( fscanf(ip,"%s",buffer)!=0)
           FilterSet.insert(buffer);
     }
 
@@ -29,7 +29,7 @@ void ComSeq::ReadFilteFile(FILE *ip)
 void ComSeq::RestrictionRead( FILE *ip)
 {
       std::vector<double>Temp;
-      char * seqName[1024];
+      char seqName[1024];
       unsigned int entry = 1;
       int N =0;
       int M =0;
@@ -70,7 +70,7 @@ void ComSeq::RestrictionReadWithName( FILE *ip)
 {
 
       std::vector<double>Temp;
-      char * seqName[1024];
+      char seqName[1024];
       char buffer[1024];
       unsigned int entry = 1;
       int N =0;
@@ -124,7 +124,7 @@ void ComSeq::RestrictionReadWithName( FILE *ip)
 void ComSeq::matrixRead(FILE *ip)
 {
   std::vector<double>Temp;
-  char * seqName[1024];
+  char seqName[1024];
   unsigned int entry = 1;
   int N =0;
   int M =0;
@@ -262,7 +262,7 @@ void ComSeq::matrixReadWithName(FILE *ip)
 
 void ComSeq::fastaread(FILE * ip)
 {
-     char * seqName[1024];
+     char seqName[1024];
      std::vector<unsigned short int>*Temp;
      unsigned int entry = 1;
 
@@ -1656,7 +1656,7 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
 */
 
 
-    fprintf(op," Total Size: %d\n",clusterResult.size());
+    fprintf(op," Total Size: %d\n",(int)clusterResult.size());
 
 
 
@@ -1708,7 +1708,7 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
                     continue;
               }
 
-           fprintf(op,"%d\n",clusterResult[i].PatternIDs.size());
+           fprintf(op,"%d\n",(int)clusterResult[i].PatternIDs.size());
            filtered_Total_size++;
 
              for(int j=0;j< clusterResult[i].PatternIDs.size();j++)
@@ -1731,7 +1731,7 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
 
                 fprintf(op,"\n");
 
-                fprintf(op,"%d  \n",clusterResult[i].IDArray.size());
+                fprintf(op,"%d  \n",(int)clusterResult[i].IDArray.size());
 
              double CorrSum =0;
              double CorrSumAdd =0;
@@ -1951,7 +1951,7 @@ void ComSeq::OutClusterWithNameCombact(FILE * op)
              if(clusterResult[i].PatternIDs.size()>0)
              {
                 fprintf(op,"%s","CorrelationAverage: ");
-                fprintf(op,"%d ",clusterResult[i].PatternIDs.size());
+                fprintf(op,"%d ",(int)clusterResult[i].PatternIDs.size());
 		if( clusterResult[i].PatternIDs.size() > 1.0)
                     fprintf(op,"%lf ",(CorrSum-clusterResult[i].PatternIDs.size())/((clusterResult[i].PatternIDs.size()-1)*(clusterResult[i].PatternIDs.size())));
                 else
