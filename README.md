@@ -75,7 +75,7 @@ The config file is necessary that exist in the same directory with data file. if
             
       3       MIR1244-1,MIR1244-3,MIR1244-2,  1       (0.577350,0.577350,0.577350,)
  
- The first numeric column  indicate the number of elements in each clustering.The next columns indicate the names of elements. the second numeric column indicate the number of components of this clustering and the next is the vectors for each component.
+ The first numeric column  indicate the number of elements in each clustering.The next columns indicate the names of elements. the second numeric column indicate the number of components of this clustering and the next are the vectors for each component.
  
  
     FeatureGen Decipher FeatureFile   InputFile OutputFile
