@@ -1,5 +1,5 @@
 objects = ComSeq.o  ClusterToFeature.o
-CC = g++  -std=c++11  -g   #-Wall
+CC = g++  -Wformat-extra-args -std=c++11  -g   #-Wall
 ARMA_INCLUDE_FLAG = -I ../LinearAlgebra/include  -I ../ 
 LIB_FLAGS = -lblas -llapack 
 CXXFLAGS = $(ARMA_INCLUDE_FLAG)
