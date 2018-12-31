@@ -1528,7 +1528,7 @@ void ComSeq::OutClusterWithName(FILE * op)
 
      std::vector <string> labels;
 
-    fprintf(op,"Total size:%d\n", clusterResult.size());
+    fprintf(op,"Total size:%d\n", (int)clusterResult.size());
 
 
     for(int i =0;i<clusterResult.size();i++)
