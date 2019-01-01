@@ -35,7 +35,7 @@ MinSupport:
    The minmum size of Attribute Clustering.The bigger MinSupport will introduce smaller the number of final result.
    
    
-# Comands
+# Commands
 
     ./Cluster TestMatrix   OutFile   [ FilterFile ] 
     
@@ -87,7 +87,7 @@ The config file is necessary that exist in the same directory with data file. if
   'NetworkFilter' is the keyword,NetworkFile is two column file which indicate such as protein-protein interaction or protein-gene interaction. FeatureFile file is the same as input feature file of "FeatureGen Decipher" command. OutputFile is the feature file after fitering. The filtering rule is definited that if elements in a clustering is connect to each another in the network which  is provided in the network file, then this clustering is kept. 
 
 
-  # Optional Comands
+  # Optional Commands
   
     FeatureGen Statistics InputFile InputFileGroupTag OutputFile\
     
