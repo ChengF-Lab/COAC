@@ -40,6 +40,13 @@ int main( int argc , char *argv[] )
 
 
 
+    if( strcmp(argv[1],"Help")==0)
+	{
+	    printf("./Cluster TestMatrix   OutFile   [ FilterFile ] \n"); 
+       printf("   The config file is necessary that exist in the same directory with data file. if not,the path of config file must be specified.\n");
+       printf("./Cluster TestMatrix  OutFile  [ FilterFile ]  -config   configPATH/config\n"); 
+       printf("TestMatrix is a input matrix \n"); 
+	}
 
 
 
