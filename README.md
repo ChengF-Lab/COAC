@@ -87,4 +87,46 @@ The config file is necessary that exist in the same directory with data file. if
   'NetworkFilter' is the keyword,NetworkFile is two column file which indicate such as protein-protein interaction or protein-gene interaction. FeatureFile file is the same as input feature file of "FeatureGen Decipher" command. OutputFile is the feature file after fitering. The filtering rule is definited that if elements in a clustering is connect to each another in the network which  is provided in the network file, then this clustering is kept. 
 
 
+  # Optional Comands
   
+    FeatureGen Statistics InputFile InputFileGroupTag OutputFile\
+    
+  'Statistics' is the keyword.This command is used to caculate the mean and the variance for each group. Also this can be caculated with R scripts, as the number of features increasing,it is time consuming.  InputFile is a sparse matrix format file, InputFileGroupTag is a file to record the group tags. The output are two columnes, For a feature, one is the sum of feature value in each group,and another is the sum of square of feature value in each group.    
+   
+    InputFileGroupTag:
+    
+       group1 
+       group1
+       group2
+       ....
+
+    OutputFile:
+                   sum of feature value       sum of square of feature value
+       group1            232.3                           534.21
+    F1 group2            182.24                          832.11
+       group3            122.11                          77.9
+       .....
+    
+       group1           142.1                            88.76
+    F2 group2           265.11                           12.22
+       group3           761.1                            102.11
+       ...
+       
+       ....... 
+    
+  
+     FeatureGen CorStatistics InputFile InputFileNumericalTag OutputFile
+     
+   'CorStatistics' is the keyword, InputFileNumericalTag record a numerical vector indicate the value of each record, And OutputFile   record the correlation between the numerical vector and each features. 
+   
+    OutputFile 
+    F1  0.2
+    F2  0.6
+    F3  0.2
+    ....
+    
+  
+  
+  
+  
+
