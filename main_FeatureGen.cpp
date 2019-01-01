@@ -164,6 +164,23 @@ int main( int argc , char *argv[] )
 
  
     }
+     
+   
+    if( strcmp(argv[1],"Help")==0)
+	{
+	    printf("FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio\n"); 
+         printf("	'ToFeature' is the keyword.\n");
+	    printf("	InputFile is a file which is generated from 'Cluster' commond\n");
+         printf("	OutputFile is a output feature record file\n");
+	    printf("	AverageCorrelation: The threshold of Average correlation\n"); 
+	    printf("	AverageComponentRatio: The threshold of Average Component Ratio\n");
+
+         printf("FeatureGen Decipher FeatureFile   InputFile OutputFile\n");
+	    printf("	'Decipher' is the keyword\n");
+         printf("	FeatureFile is the file which is generated from 'FeatureGen ToFeature' commond\n"); 
+         printf("	InputFile is a gene expression matrix\n"); 
+	    printf("	OutputFile is the sparse matrix format file\n");
+	}
 
 
 
