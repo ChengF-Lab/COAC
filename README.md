@@ -69,7 +69,7 @@ The config file is necessary that exist in the same directory with data file. if
   The  distribution of Average correlation and Average Component Ratio can be obtained from log file,The thresholds of Average correlation and Average Component Ratio for filtration are evaluated from this distribution. 
  
       
-     FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio
+     ./FeatureGen ToFeature   InputFile OutputFile AverageCorrelation AverageComponentRatio
  
  'ToFeature' is the keyword. InputFile is the filename of Cluster commond generated file.  OutputFile is output file name for features record.AverageCorrelation is a numeric indicate the threshold of Average correlation and AverageComponentRatio is a  numeric indicate the threshold of Average Component Ratio. this commond will generate the feature file. The format of feature file is described as follows: 
             
@@ -78,18 +78,18 @@ The config file is necessary that exist in the same directory with data file. if
  The first numeric column  indicate the number of elements in each clustering.The next columns indicate the names of elements. the second numeric column indicate the number of components of this clustering and the next are the vectors for each component.
  
  
-    FeatureGen Decipher FeatureFile   InputFile OutputFile
+    ./FeatureGen Decipher FeatureFile   InputFile OutputFile
    
   'Decipher' is the keyword,FeatureFile is the filename of 'FeatureGen ToFeature' commond generated file.InputFile is a matrix file with the same format with the input file of 'Cluster' command, OutputFile is the filename of a sparse matrix which is a mapping of outputfile. This mapping is implemented using features which recorded in FeatureFile.The OutputFile with sparse matrix format can be loaded into R environment directly for further analysis.     
   
-    FeatureGen NetworkFilter  FeatureFile  NetworkFile OutputFile
+    ./FeatureGen NetworkFilter  FeatureFile  NetworkFile OutputFile
 
   'NetworkFilter' is the keyword,NetworkFile is two column file which indicate such as protein-protein interaction or protein-gene interaction. FeatureFile file is the same as input feature file of "FeatureGen Decipher" command. OutputFile is the feature file after fitering. The filtering rule is definited that if elements in a clustering is connect to each another in the network which  is provided in the network file, then this clustering is kept. 
 
 
   # Optional Commands
   
-    FeatureGen Statistics InputFile InputFileGroupTag OutputFile
+    ./FeatureGen Statistics InputFile InputFileGroupTag OutputFile
     
   'Statistics' is the keyword.This command is used to caculate the mean and the variance for each group. Also this can be caculated with R scripts, as the number of features increasing,it is time consuming.  InputFile is a sparse matrix format file, InputFileGroupTag is a file to record the group tags. The output are two columnes, For a feature, one is the sum of feature value in each group,and another is the sum of square of feature value in each group.    
    
