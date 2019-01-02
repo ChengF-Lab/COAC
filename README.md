@@ -95,9 +95,9 @@ The config file is necessary that exist in the same directory with data file. if
    
     InputFileGroupTag:
     
-       group1 
-       group1
-       group2
+     s1     group1 
+     s2     group1
+     s3     group2
        ....
 
     OutputFile:
