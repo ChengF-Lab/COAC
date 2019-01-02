@@ -89,7 +89,7 @@ The config file is necessary that exist in the same directory with data file. if
 
   # Optional Commands
   
-    FeatureGen Statistics InputFile InputFileGroupTag OutputFile\
+    FeatureGen Statistics InputFile InputFileGroupTag OutputFile
     
   'Statistics' is the keyword.This command is used to caculate the mean and the variance for each group. Also this can be caculated with R scripts, as the number of features increasing,it is time consuming.  InputFile is a sparse matrix format file, InputFileGroupTag is a file to record the group tags. The output are two columnes, For a feature, one is the sum of feature value in each group,and another is the sum of square of feature value in each group.    
    
